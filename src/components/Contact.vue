@@ -23,7 +23,7 @@ v-list
 		v-list-item-content
 			v-list-item-title 11 Rue des Longines #[br] Écardenville sur Eure #[br] 27490 CLEF Vallée d'Eure
 		v-list-item-action
-			v-btn(small fab color='secondary' href='https://vuetifyjs.com/en/components/buttons' target='_blank')
+			v-btn(small fab color='secondary' light href='https://vuetifyjs.com/en/components/buttons' target='_blank')
 				v-icon mdi-google-maps
 </template>
 
