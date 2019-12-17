@@ -14,7 +14,7 @@ v-app
 		v-container
 			slot
 	v-footer(app color='primary')
-		col.text-center Développé par Vincent GIRAUD
+		v-col.text-center Développé par Vincent GIRAUD
 </template>
 
 <static-query>
