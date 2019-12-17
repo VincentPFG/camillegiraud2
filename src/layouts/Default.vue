@@ -6,14 +6,14 @@ v-app
 	//- 			v-list-item-content
 	//- 				v-list-item-title {{item.name}}
 	v-app-bar(app color='primary')
-		v-app-bar-nav-icon(@click='drawer = !drawer')
+		//- v-app-bar-nav-icon(@click='drawer = !drawer')
 		v-toolbar-title {{$static.metadata.siteName}}
 		v-spacer
 		Dark
 	v-content
 		v-container
 			slot
-	v-footer(app) test
+	v-footer(app color='primary').text-center Développé par Vincent GIRAUD
 </template>
 
 <static-query>
