@@ -1,6 +1,6 @@
 module.exports =
 
-	siteName: 'Gridsome'
+	siteName: 'Camille GIRAUD'
 
 	plugins: [
 		...(require '../plugins') [
