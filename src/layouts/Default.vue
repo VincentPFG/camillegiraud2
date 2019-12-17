@@ -5,7 +5,7 @@ v-app
 			v-list-item(v-for='item in nav' :to='item.route' :key='item.name')
 				v-list-item-content
 					v-list-item-title {{item.name}}
-	v-app-bar(app)
+	v-app-bar(app color='primary')
 		v-app-bar-nav-icon(@click='drawer = !drawer')
 		v-toolbar-title {{$static.metadata.siteName}}
 		v-spacer

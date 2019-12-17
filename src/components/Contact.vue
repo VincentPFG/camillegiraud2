@@ -6,7 +6,7 @@ v-list
 		v-list-item-content
 			v-list-item-title 06 70 13 08 03
 		v-list-item-action
-			v-btn(large icon)
+			v-btn(small fab color='secondary')
 				v-icon mdi-content-copy
 	v-divider
 	v-list-item
@@ -23,7 +23,7 @@ v-list
 		v-list-item-content
 			v-list-item-title 11 Rue des Longines #[br] Écardenville sur Eure #[br] 27490 CLEF Vallée d'Eure
 		v-list-item-action
-			v-btn(large icon)
+			v-btn(small fab color='secondary' href='https://vuetifyjs.com/en/components/buttons' target='_blank')
 				v-icon mdi-google-maps
 </template>
 

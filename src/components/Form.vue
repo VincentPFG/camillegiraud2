@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-    v-btn(@click.stop='dialog = true' large icon)
+    v-btn(@click.stop='dialog = true' small fab color='secondary')
         v-icon mdi-pencil
     v-dialog(v-model='dialog')
         //- template(v-slot:activator='{on}')
@@ -16,14 +16,14 @@ div
                 v-container
                     v-row
                         v-col(cols='12' md='2')
-                            v-select(:items='civilItems' label='civilité' v-model='civil')
+                            v-select(:items='civilItems' label='Civilité' v-model='civil')
                         v-col(cols='12' md='5')
-                            v-text-field(v-model='name' label='name')
+                            v-text-field(v-model='name' label='Nom')
                         v-col(cols='12' md='5')
-                            v-text-field(v-model='email' label='email')
-                    v-textarea(v-model='message' label='message')
+                            v-text-field(v-model='email' label='Mail')
+                    v-textarea(v-model='message' label='Message')
                     v-row(justify='center')
-                        v-btn(type='submit' large icon)
+                        v-btn(type='submit' fab color='secondary')
                             v-icon mdi-send
 </template>
 
