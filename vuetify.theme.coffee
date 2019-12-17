@@ -7,7 +7,7 @@ module.exports =
         themes:
             light: {
                 primary: colors.green.lighten1
-                secondary: colors.lime.lighten1
+                secondary: colors.lime.lighten4
                 accent: colors.green.accent2
             }
             dark: {
