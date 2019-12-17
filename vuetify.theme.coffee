@@ -12,6 +12,7 @@ module.exports =
         themes: {
             light
             dark: {
+                ...light
                 primary: colors.green.darken1
             }
         }
