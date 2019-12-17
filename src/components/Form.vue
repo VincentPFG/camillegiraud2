@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-    v-btn(@click.stop='dialog = true' small fab color='secondary')
+    v-btn(@click.stop='dialog = true' small fab color='primary')
         v-icon mdi-pencil
     v-dialog(v-model='dialog')
         //- template(v-slot:activator='{on}')
@@ -23,7 +23,7 @@ div
                             v-text-field(v-model='email' label='Mail')
                     v-textarea(v-model='message' label='Message')
                     v-row(justify='center')
-                        v-btn(type='submit' fab color='secondary')
+                        v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
 </template>
 
