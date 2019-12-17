@@ -1,5 +1,6 @@
 <template lang='pug'>
 Layout
+    v-parallax(src='devanture.jpg')
     Contact
 </template>
 
