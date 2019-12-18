@@ -7,7 +7,7 @@ div
         //-     v-layout(justify-center)
         //-         v-btn(v-on='on') contacter
         v-card
-            v-form(netlify name='contact')
+            v-form(netlify name='contact' @submit.prevent)
                 div(hidden)
                     input(name='form-name' value='contact')
                     input(name='de' :value='intro')
@@ -23,7 +23,7 @@ div
                             v-text-field(v-model='email' label='Mail')
                     v-textarea(v-model='message' label='Message')
                     v-row(justify='center')
-                        v-btn(@click='submit' fab color='primary')
+                        v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
 </template>
 
@@ -44,7 +44,7 @@ export default
     computed:
         intro: -> "#{@civil} #{@name}"
     methods:
-        submit: ->
+        onSubmit: ->
             fetch '/',
                 method: 'POST'
                 headers: 'Content-Type': 'application/x-www-form-urlencoded'
