@@ -7,12 +7,12 @@ div
         //-     v-layout(justify-center)
         //-         v-btn(v-on='on') contacter
         v-card
-            form(netlify name='contact' @submit.prevent)
-                div(hidden)
-                    input(name='form-name' value='contact')
-                    input(name='de' :value='intro')
-                    input(name='mail' :value='email')
-                    textarea(name='message' :value='message')
+            v-form(netlify name='contact' @submit.prevent='onSubmit')
+                //- div(hidden)
+                //-     input(name='form-name' value='contact')
+                //-     input(name='de' :value='intro')
+                //-     input(name='mail' :value='email')
+                //-     textarea(name='message' :value='message')
                 v-container
                     v-row
                         v-col(cols='12' md='2')
@@ -41,12 +41,19 @@ export default
         # other
         dialog: off
         civilItems: ['Madame', 'Monsieur']
-    computed:
-        intro: -> "#{@civil} #{@name}"
+    # computed:
+    #     intro: -> "#{@civil} #{@name}"
     methods:
         onSubmit: ->
             fetch '/',
                 method: 'POST'
                 headers: 'Content-Type': 'application/x-www-form-urlencoded'
-                body: encode {@intro, @email, @message}
+                body: encode {
+                    'form-name': 'contact'
+                    de: "#{@civil} #{@name}"
+                    mail: @email
+                    @message
+                }
+            .then -> console.log 'success'
+            .catch -> console.log 'error'
 </script>
