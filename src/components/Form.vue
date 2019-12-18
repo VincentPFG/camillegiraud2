@@ -7,7 +7,7 @@ div
         //-     v-layout(justify-center)
         //-         v-btn(v-on='on') contacter
         v-card
-            v-form(netlify name='contact' @submit.prevent)
+            form(netlify name='contact' @submit.prevent)
                 div(hidden)
                     input(name='form-name' value='contact')
                     input(name='de' :value='intro')
