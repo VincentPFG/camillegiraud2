@@ -1,26 +1,31 @@
 <template lang='pug'>
 div
-    v-btn(@click.stop='dialog = true' small fab color='primary')
-        v-icon mdi-pencil
+    v-btn(@click.stop='dialog = true' color='primary') formulaire de contact
     v-dialog(v-model='dialog')
-        //- template(v-slot:activator='{on}')
-        //-     v-layout(justify-center)
-        //-         v-btn(v-on='on') contacter
         v-card
-            v-form(@submit.prevent='onSubmit')
-                //- div(hidden)
-                //-     input(name='form-name' value='contact')
-                //-     input(name='de' :value='intro')
-                //-     input(name='mail' :value='email')
-                //-     textarea(name='message' :value='message')
+            v-form(netlify name='contact' @submit.prevent='onSubmit')
+                div(hidden)
+                    input(name='de')
+                    textarea(name='message')
+                    input(name='mail')
+                    input(name='téléphone')
+                    textarea(name='addresse')
                 v-container
+                    v-row(justify='end')
+                        v-btn(icon @click='dialog = false')
+                            v-icon mdi-close
                     v-row
-                        v-col(cols='12' md='2')
+                        v-col(cols='12' md='4')
                             v-select(:items='civilItems' label='Civilité' v-model='civil')
-                        v-col(cols='12' md='5')
-                            v-text-field(v-model='name' label='Nom')
-                        v-col(cols='12' md='5')
+                        v-col(cols='12' md='8')
+                            v-text-field(v-model='name' label='Nom' :rules='rules.name')
+                    v-row
+                        v-col(cols='12' md='4')
+                            v-text-field(v-model='phone' label='Téléphone')
+                        v-col(cols='12' md='4')
                             v-text-field(v-model='email' label='Mail')
+                        v-col(cols='12' md='4')
+                            v-textarea(v-model='address' label='Adresse')
                     v-textarea(v-model='message' label='Message')
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
@@ -33,23 +38,26 @@ encode = (data) -> ("#{encodeURIComponent key}=#{encodeURIComponent data[key]}" 
 export default
     data: ->
         # form
-        message: ''
-        email: ''
-        # computed form
-        name: ''
-        civil: ''
+        message: null
+        email: null
+        phone: null
+        address: null
+        name: null
+        civil: null
         # other
         dialog: off
         civilItems: ['Madame', 'Monsieur']
-    # computed:
-    #     intro: -> "#{@civil} #{@name}"
+        rules:
+            name: [
+                (v) -> !!v or 'requis'
+            ]
     methods:
         onSubmit: ->
             fetch '/',
                 method: 'POST'
                 headers: 'Content-Type': 'application/x-www-form-urlencoded'
                 body: encode {
-                    'form-name': 'test'
+                    'form-name': 'contact'
                     de: "#{@civil} #{@name}"
                     mail: @email
                     @message

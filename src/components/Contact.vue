@@ -15,7 +15,8 @@ v-list
 		v-list-item-content
 			v-list-item-title camille-giraud@orange.fr
 		v-list-item-action
-			Form
+			v-btn(small fab color='primary')
+				v-icon mdi-content-copy
 	v-divider
 	v-list-item
 		v-list-item-icon
@@ -25,6 +26,10 @@ v-list
 		v-list-item-action
 			v-btn(small fab color='primary' to='https://goo.gl/maps/cQFpdJt1TRTG2Zb78')
 				v-icon mdi-google-maps
+	v-divider
+	v-list-item
+		v-row(justify='center')
+			Form
 </template>
 
 <script lang='coffee'>
