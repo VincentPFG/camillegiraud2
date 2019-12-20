@@ -3,6 +3,11 @@ div
     v-btn(@click.stop='dialog = true' color='primary') formulaire de contact
     v-dialog(v-model='dialog')
         v-card
+            v-toolbar(color='primary')
+                v-toolbar-title Formulaire de contact
+                v-spacer
+                v-btn(icon @click='dialog = false')
+                    v-icon mdi-close
             v-form(netlify name='contact' @submit.prevent='onSubmit')
                 div(hidden)
                     input(name='de')
@@ -11,9 +16,6 @@ div
                     input(name='téléphone')
                     textarea(name='addresse')
                 v-container
-                    v-row(justify='end')
-                        v-btn(icon @click='dialog = false')
-                            v-icon mdi-close
                     v-row
                         v-col(cols='12' md='4')
                             v-select(:items='civilItems' label='Civilité' v-model='civil')
