@@ -23,9 +23,9 @@ div
                             v-text-field(v-model='name' label='Nom' :rules='rules.name')
                     v-row
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='phone' label='Téléphone')
+                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone')
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='email' label='Mail')
+                            v-text-field(v-model='email' label='Mail' :rules='rules.email')
                         v-col(cols='12' md='4')
                             v-textarea(v-model='address' label='Adresse')
                     v-textarea(v-model='message' label='Message')
@@ -47,11 +47,19 @@ export default
         name: null
         civil: null
         # other
-        dialog: off
+        dialog: on
         civilItems: ['Madame', 'Monsieur']
         rules:
             name: [
-                (v) -> !!v or 'requis'
+                (v) => !!v or "Votre nom est requis"
+            ]
+            email: [
+                => (!!@phone or !!@email) or "Un moyen de contact est requis"
+                (v) => /.+@.+\..+/.test(v) or "Le format semble invalide"
+            ]
+            phone: [
+                => (!!@phone or !!@email) or "Un moyen de contact est requis"
+                (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}$)/.test(v) or "Le format semble invalide"
             ]
     methods:
         onSubmit: ->
