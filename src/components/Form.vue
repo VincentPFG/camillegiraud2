@@ -67,7 +67,7 @@ export default
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
                 (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}|^$)/.test(v) or "Le format semble invalide"
             ]
-        successSB: on
+        successSB: off
         errorSB: off
     methods:
         onSubmit: ->
