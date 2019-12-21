@@ -8,7 +8,7 @@ div
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(netlify name='contact' @submit.prevent='onSubmit')
+            v-form(netlify name='contact' @submit.prevent='onSubmit' ref='form')
                 div(hidden)
                     input(name='de')
                     textarea(name='message')
@@ -23,7 +23,7 @@ div
                             v-text-field(v-model='name' label='Nom' :rules='rules.name')
                     v-row
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone')
+                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone' multiple)
                         v-col(cols='12' md='4')
                             v-text-field(v-model='email' label='Mail' :rules='rules.email')
                         v-col(cols='12' md='4')
@@ -32,6 +32,8 @@ div
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
+    v-snackbar(v-model='successSB' color='success') Formulaire envoyé
+    v-snackbar(v-model='errorSB' color='error') Une erreur est survenue
 </template>
 
 <script lang='coffee'>
@@ -40,38 +42,46 @@ encode = (data) -> ("#{encodeURIComponent key}=#{encodeURIComponent data[key]}" 
 export default
     data: ->
         # form
-        message: null
-        email: null
-        phone: null
-        address: null
-        name: null
-        civil: null
+        message: ''
+        email: ''
+        phone: ''
+        address: ''
+        name: ''
+        civil: ''
         # other
-        dialog: on
+        dialog: off
         civilItems: ['Madame', 'Monsieur']
         rules:
             name: [
-                (v) => !!v or "Votre nom est requis"
+                (v) => !!v or "Nom requis"
             ]
             email: [
-                => (!!@phone or !!@email) or "Un moyen de contact est requis"
-                (v) => /.+@.+\..+/.test(v) or "Le format semble invalide"
+                => (!!@phone or !!@email) or "Téléphone ou Mail requis"
+                (v) => /(.+@.+\..+|^$)/.test(v) or "Le format semble invalide"
             ]
             phone: [
-                => (!!@phone or !!@email) or "Un moyen de contact est requis"
-                (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}$)/.test(v) or "Le format semble invalide"
+                => (!!@phone or !!@email) or "Téléphone ou Mail requis"
+                (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}|^$)/.test(v) or "Le format semble invalide"
             ]
+        successSB: off
+        errorSB: off
     methods:
         onSubmit: ->
-            fetch '/',
-                method: 'POST'
-                headers: 'Content-Type': 'application/x-www-form-urlencoded'
-                body: encode {
-                    'form-name': 'contact'
-                    de: "#{@civil} #{@name}"
-                    mail: @email
-                    @message
-                }
-            .then -> console.log 'success'
-            .catch -> console.log 'error'
+            if @$refs.form.validate()
+                fetch '/',
+                    method: 'POST'
+                    headers: 'Content-Type': 'application/x-www-form-urlencoded'
+                    body: encode {
+                        'form-name': 'contact'
+                        de: "#{@civil} #{@name}"
+                        mail: @email
+                        @message
+                    }
+                .then =>
+                    @dialog = off
+                    @$refs.form.reset()
+                    @successSB = on
+                .catch =>
+                    @dialog = off
+                    @errorSB = on
 </script>
