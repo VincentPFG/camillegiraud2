@@ -3,7 +3,7 @@ v-row(justify='center')
 	v-col(cols='12', md='6')
 		v-list
 			v-list-item
-				v-list-item-icon.d-flex
+				v-list-item-icon.d-flex.align-center
 					v-icon.align-center mdi-cellphone
 				v-list-item-content
 					v-list-item-title 06 70 13 08 03
