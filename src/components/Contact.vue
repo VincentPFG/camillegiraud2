@@ -4,7 +4,7 @@ v-row(justify='center')
 		v-list
 			v-list-item
 				v-list-item-icon
-					v-icon(large) mdi-cellphone
+					v-icon.align-center mdi-cellphone
 				v-list-item-content
 					v-list-item-title 06 70 13 08 03
 				v-list-item-action
@@ -15,7 +15,7 @@ v-row(justify='center')
 			v-divider
 			v-list-item
 				v-list-item-icon
-					v-icon(large).mx-auto mdi-email
+					v-icon.align-center mdi-email
 				v-list-item-content
 					v-list-item-title camille-giraud@orange.fr
 				v-list-item-action
