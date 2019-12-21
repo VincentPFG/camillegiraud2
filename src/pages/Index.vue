@@ -1,6 +1,6 @@
 <template lang='pug'>
 Layout
-    h1.display-4.my-auto Entretien Espaces Verts
+    h1.display-4.my-12 Entretien Espaces Verts
     v-carousel(cycle progress hide-delimiters :show-arrows='false')
         v-carousel-item(v-for='image in images' :key='image' :src='image')
     #contact
