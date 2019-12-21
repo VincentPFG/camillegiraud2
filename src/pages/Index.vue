@@ -7,12 +7,12 @@ Layout
         v-carousel-item(v-for='image in images' :key='image' :src='image')
     #contact
         br
-        h2.display-2.text-center Nous contacter
+        h2.display-1.text-center Nous contacter
         br
         Contact
     #equipe
         br
-        h2.display-2.text-center Notre équipe
+        h2.display-1.text-center Notre équipe
         br
 </template>
 
