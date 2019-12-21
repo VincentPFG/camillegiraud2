@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-app
 	v-navigation-drawer(app v-model='drawer')
-		v-list
+		v-list(nav)
 			v-list-item(v-for='item in nav' :to='item.route' :key='item.name')
 				v-list-item-content
 					v-list-item-title {{item.name}}
@@ -12,8 +12,9 @@ v-app
 		Dark
 	v-content
 		v-container
-			v-alert(type='warning') Ce site est en cours de développement.
-			slot
+			.d-flex.flex-column.justify-space-around
+				v-alert(type='warning') Ce site est en cours de développement.
+				slot
 	v-footer(app absolute color='primary')
 		v-row(justify='center') Développé par Vincent GIRAUD
 </template>

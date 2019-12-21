@@ -1,13 +1,13 @@
 <template lang='pug'>
 Layout
-    h1 Entretien Espaces Verts
+    h1.display-4.my-auto Entretien Espaces Verts
     v-carousel(cycle progress hide-delimiters :show-arrows='false')
         v-carousel-item(v-for='image in images' :key='image' :src='image')
     #contact
-        h2 Nous contacter
+        h2.display-3 Nous contacter
         Contact
     #equipe
-        h2 Notre équipe
+        h2.display-3 Notre équipe
 </template>
 
 <script lang='coffee'>

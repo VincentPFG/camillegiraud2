@@ -32,10 +32,11 @@ div
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
-    v-snackbar(v-model='successSB' color='success' timeout='') Formulaire envoyé
+        p phone: {{phone}}
+    v-snackbar(v-model='successSB' color='success' :timeout='0') Formulaire envoyé
         v-btn(icon @click='successSB = false')
             v-icon mdi-close
-    v-snackbar(v-model='errorSB' color='error' timeout='') Une erreur est survenue
+    v-snackbar(v-model='errorSB' color='error' :timeout='0') Une erreur est survenue
         v-btn(icon @click='arrorSB = false' )
             v-icon mdi-close
 </template>
@@ -61,11 +62,11 @@ export default
             ]
             email: [
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
-                (v) => /(.+@.+\..+|^$)/.test(v) or "Le format semble invalide"
+                (v) => (!!v and /.+@.+\..+/.test v) or "Le format semble invalide"
             ]
             phone: [
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
-                (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}|^$)/.test(v) or "Le format semble invalide"
+                (v) => (!!v and /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4})/.test v) or "Le format semble invalide"
             ]
         successSB: off
         errorSB: off
@@ -90,4 +91,5 @@ export default
                 .catch =>
                     @dialog = off
                     @errorSB = on
+    mounted: -> console.log @phone
 </script>
