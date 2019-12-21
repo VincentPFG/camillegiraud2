@@ -12,8 +12,8 @@ div
                 div(hidden)
                     input(name='de')
                     textarea(name='message')
-                    input(name='mail')
                     input(name='téléphone')
+                    input(name='mail')
                     textarea(name='addresse')
                 v-container
                     v-row
@@ -32,8 +32,12 @@ div
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
-    v-snackbar(v-model='successSB' color='success') Formulaire envoyé
-    v-snackbar(v-model='errorSB' color='error') Une erreur est survenue
+    v-snackbar(v-model='successSB' color='success' timeout='') Formulaire envoyé
+        v-btn(icon @click='successSB = false')
+            v-icon mdi-close
+    v-snackbar(v-model='errorSB' color='error' timeout='') Une erreur est survenue
+        v-btn(icon @click='arrorSB = false' )
+            v-icon mdi-close
 </template>
 
 <script lang='coffee'>
@@ -63,7 +67,7 @@ export default
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
                 (v) => /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}|^$)/.test(v) or "Le format semble invalide"
             ]
-        successSB: off
+        successSB: on
         errorSB: off
     methods:
         onSubmit: ->
@@ -76,6 +80,8 @@ export default
                         de: "#{@civil} #{@name}"
                         mail: @email
                         @message
+                        'téléphone': @phone
+                        addresse: address
                     }
                 .then =>
                     @dialog = off
