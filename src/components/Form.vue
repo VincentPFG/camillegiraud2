@@ -81,7 +81,7 @@ export default
                         mail: @email
                         @message
                         'téléphone': @phone
-                        addresse: address
+                        addresse: @address
                     }
                 .then =>
                     @dialog = off
