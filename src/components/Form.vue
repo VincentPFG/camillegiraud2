@@ -32,7 +32,6 @@ div
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
-        p phone: {{phone}}
     v-snackbar(v-model='successSB' color='success' :timeout='0') Formulaire envoyé
         v-btn(icon @click='successSB = false')
             v-icon mdi-close
