@@ -9,16 +9,15 @@ Layout
     #equipe
         h2.display-1 Notre équipe
         Equipe
-    //- Maps
 </template>
 
 <script lang='coffee'>
 import Contact from '~/components/Contact'
 import Equipe from '~/components/Equipe'
-import Maps from '~/components/Maps'
 
 export default
-    components: {Contact, Equipe, Maps}
+    metaInfo: title: 'Entretien Espaces Verts'
+    components: {Contact, Equipe}
     data: ->
         images: ['devanture.jpg', 'jardin.jpg', 'mare.jpg']
 </script>

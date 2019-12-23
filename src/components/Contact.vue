@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-row(justify='center')
 	v-col(cols='12', md='6')
-		v-list
+		v-list.list-icon-patch
 			v-list-item
 				v-list-item-icon
 					v-icon(large) mdi-cellphone
@@ -30,8 +30,7 @@ v-row(justify='center')
 				v-list-item-content
 					v-list-item-title 11 Rue des Longines #[br] Écardenville sur Eure #[br] 27490 CLEF Vallée d'Eure
 				v-list-item-action
-					v-btn(icon href='https://goo.gl/maps/cQFpdJt1TRTG2Zb78' target='_blank')
-						v-icon(color='primary') mdi-google-maps
+					Maps
 			v-divider
 			v-list-item
 				v-row(justify='center')
@@ -41,9 +40,10 @@ v-row(justify='center')
 
 <script lang='coffee'>
 import Form from '~/components/Form'
+import Maps from '~/components/Maps'
 
 export default
-	components: {Form}
+	components: {Form, Maps}
 	data: ->
 		snackbar: no
 		color: null
@@ -59,3 +59,9 @@ export default
 					@text = 'Une erreur est survenue'
 			@snackbar = yes
 </script>
+
+<style>
+.list-icon-patch *:first-child {
+	align-self: center
+}
+</style>

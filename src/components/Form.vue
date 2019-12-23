@@ -1,6 +1,6 @@
 <template lang='pug'>
 div
-    v-btn(@click.stop='dialog = true' color='primary') formulaire de contact
+    v-btn(@click='dialog = true' color='primary') formulaire de contact
     v-dialog(v-model='dialog')
         v-card
             v-toolbar(color='primary')
