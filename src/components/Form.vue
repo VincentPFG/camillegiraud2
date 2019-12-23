@@ -23,12 +23,12 @@ div
                             v-text-field(v-model='name' label='Nom' :rules='rules.name')
                     v-row
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone' multiple)
+                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone' prepend-icon='mdi-cellphone')
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='email' label='Mail' :rules='rules.email')
+                            v-text-field(v-model='email' label='Mail' :rules='rules.email' prepend-icon='mdi-email')
                         v-col(cols='12' md='4')
-                            v-textarea(v-model='address' label='Adresse')
-                    v-textarea(v-model='message' label='Message')
+                            v-textarea(v-model='address' label='Adresse' prepend-icon='mdi-map-marker')
+                    v-textarea(v-model='message' label='Message' prepend-icon='mdi-pen')
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
@@ -61,11 +61,11 @@ export default
             ]
             email: [
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
-                (v) => (!!v and /.+@.+\..+/.test v) or "Le format semble invalide"
+                (v) => (!v or /.+@.+\..+/.test v) or "Le format semble invalide"
             ]
             phone: [
                 => (!!@phone or !!@email) or "Téléphone ou Mail requis"
-                (v) => (!!v and /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4})/.test v) or "Le format semble invalide"
+                (v) => (!v or /(^((\+|00)33|0)\d{9}$|^((\+|00 ?)33 |0)\d( \d{2}){4}$)/.test v) or "Le format semble invalide"
             ]
         successSB: off
         errorSB: off

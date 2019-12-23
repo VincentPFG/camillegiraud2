@@ -3,7 +3,7 @@ div
     v-btn(@click='dialog = true' icon)
         v-icon(color='primary') mdi-google-maps
     v-dialog(v-model='dialog')
-        v-card
+        v-card.primary
             v-toolbar(color='primary')
                 v-toolbar-title Maps
                 v-spacer
