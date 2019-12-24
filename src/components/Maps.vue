@@ -2,7 +2,7 @@
 div
     v-btn(@click='dialog = true' icon)
         v-icon(color='primary') mdi-google-maps
-    v-dialog(v-model='dialog')
+    v-dialog(v-model='dialog' fullscreen)
         v-card.grey
             v-toolbar(color='primary')
                 v-toolbar-title Maps
@@ -21,7 +21,7 @@ export default
 <style>
 iframe {
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     border: 0
 }
 </style>
