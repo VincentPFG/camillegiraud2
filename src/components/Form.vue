@@ -23,9 +23,9 @@ div
                             v-text-field(v-model='name' label='Nom' :rules='rules.name')
                     v-row
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='phone' label='Téléphone' :rules='rules.phone' prepend-icon='mdi-cellphone')
+                            v-text-field(v-model='phone' type='tel' label='Téléphone' :rules='rules.phone' prepend-icon='mdi-cellphone')
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='email' label='Mail' :rules='rules.email' prepend-icon='mdi-email')
+                            v-text-field(v-model='email' type='email' label='Mail' :rules='rules.email' prepend-icon='mdi-email')
                         v-col(cols='12' md='4')
                             v-textarea(v-model='address' label='Adresse' prepend-icon='mdi-map-marker' :rules='rules.name')
                     v-textarea(v-model='message' label='Message' prepend-icon='mdi-pen' :rules='rules.name')
