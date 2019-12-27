@@ -79,7 +79,9 @@ export default
                         contenu: """
 
                             #{@civil} #{@name}
+
                             #{@phone}   #{@email}
+                            
                             #{@address}
 
                             #{@message}
