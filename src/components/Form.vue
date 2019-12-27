@@ -87,7 +87,7 @@ export default
                     #     mail: @email
                     #     adresse: @address
                     # }
-                    body:
+                    body: encode
                         'form-name': 'Contact 2'
                         contenu: """
 
@@ -105,5 +105,4 @@ export default
                 .catch =>
                     @dialog = off
                     @errorSB = on
-    mounted: -> console.log @phone
 </script>
