@@ -8,7 +8,7 @@ div
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(netlify name='contact' @submit.prevent='onSubmit' ref='form')
+            v-form(netlify name='test' @submit.prevent='onSubmit' ref='form')
                 div(hidden)
                     //- input(name='de')
                     //- textarea(name='message')
@@ -88,7 +88,7 @@ export default
                     #     adresse: @address
                     # }
                     body: encode
-                        'form-name': 'contact'
+                        'form-name': 'test'
                         contenu: """
 
                             #{@civil} #{@name}
