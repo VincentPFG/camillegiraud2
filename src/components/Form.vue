@@ -8,17 +8,8 @@ div
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            div(hidden)
-                form(netlify name='test')
-                    textarea(name='contenu')
-            v-form(netlify @submit.prevent='onSubmit' ref='form')
+            v-form(data-netlify='true' name='test' @submit.prevent='onSubmit' ref='form')
                 div(hidden)
-                    //- input(name='de')
-                    //- textarea(name='message')
-                    //- input(name='téléphone')
-                    //- input(name='mail')
-                    //- textarea(name='adresse')
-                    //- input(name='form-name' value='test')
                     textarea(name='contenu')
                 v-container
                     v-row
@@ -83,14 +74,6 @@ export default
                 fetch '/',
                     method: 'POST'
                     headers: 'Content-Type': 'application/x-www-form-urlencoded'
-                    # body: encode {
-                    #     'form-name': 'Contact 2'
-                    #     de: "#{@civil} #{@name}"
-                    #     @message
-                    #     'téléphone': @phone
-                    #     mail: @email
-                    #     adresse: @address
-                    # }
                     body: encode
                         'form-name': 'test'
                         contenu: """
