@@ -78,12 +78,11 @@ export default
                         'form-name': 'contact'
                         contenu: """
 
-                                #{@civil} #{@name}
-                                #{@phone}
-                                #{@email}
-                                #{@address}
+                            #{@civil} #{@name}
+                            #{@phone}   #{@email}
+                            #{@address}
 
-                                #{@message}
+                            #{@message}
                         """
                 .then =>
                     @dialog = off
