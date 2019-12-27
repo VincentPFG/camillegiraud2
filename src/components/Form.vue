@@ -1,14 +1,14 @@
 <template lang='pug'>
 div
     v-btn(@click='dialog = true' color='primary') formulaire de contact
-    v-dialog(v-model='dialog')
+    v-dialog(v-model='dialog' eager)
         v-card
             v-toolbar(color='primary')
                 v-toolbar-title Formulaire de contact
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(data-netlify='true' name='test' @submit.prevent='onSubmit' ref='form')
+            v-form(netlify name='contact' @submit.prevent='onSubmit' ref='form')
                 div(hidden)
                     textarea(name='contenu')
                 v-container
@@ -75,15 +75,15 @@ export default
                     method: 'POST'
                     headers: 'Content-Type': 'application/x-www-form-urlencoded'
                     body: encode
-                        'form-name': 'test'
+                        'form-name': 'contact'
                         contenu: """
 
-                            #{@civil} #{@name}
-                            #{@phone}
-                            #{@email}
-                            #{@address}
+                                #{@civil} #{@name}
+                                #{@phone}
+                                #{@email}
+                                #{@address}
 
-                            #{@message}
+                                #{@message}
                         """
                 .then =>
                     @dialog = off
