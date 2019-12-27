@@ -14,7 +14,7 @@ div
                     textarea(name='message')
                     input(name='téléphone')
                     input(name='mail')
-                    textarea(name='addresse')
+                    textarea(name='adresse')
                 v-container
                     v-row
                         v-col(cols='12' md='4')
@@ -81,10 +81,10 @@ export default
                     body: encode {
                         'form-name': 'contact'
                         de: "#{@civil} #{@name}"
-                        mail: @email
                         @message
                         'téléphone': @phone
-                        addresse: @address
+                        mail: @email
+                        adresse: @address
                     }
                 .then =>
                     @dialog = off
