@@ -2,7 +2,7 @@
 div
     v-btn(@click='dialog = true' icon)
         v-icon(color='primary') mdi-google-maps
-    v-dialog(v-model='dialog' fullscreen)
+    v-dialog(v-model='dialog' fullscreen eager)
         v-card.grey
             v-toolbar(color='primary')
                 v-toolbar-title Maps
