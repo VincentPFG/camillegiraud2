@@ -15,6 +15,7 @@ div
                     //- input(name='téléphone')
                     //- input(name='mail')
                     //- textarea(name='adresse')
+                    input(name='form-name' value='test')
                     textarea(name='contenu')
                 v-container
                     v-row
