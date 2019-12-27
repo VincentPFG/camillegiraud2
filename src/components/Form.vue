@@ -1,16 +1,16 @@
 <template lang='pug'>
 div
+    v-form(v-show='false' netlify name='contact')
+        textarea(name='contenu')
     v-btn(@click='dialog = true' color='primary') formulaire de contact
-    v-dialog(v-model='dialog' eager)
+    v-dialog(v-model='dialog')
         v-card
             v-toolbar(color='primary')
                 v-toolbar-title Formulaire de contact
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(netlify name='contact' @submit.prevent='onSubmit' ref='form')
-                div(hidden)
-                    textarea(name='contenu')
+            v-form(@submit.prevent='onSubmit' ref='form')
                 v-container
                     v-row
                         v-col(cols='12' md='4')
