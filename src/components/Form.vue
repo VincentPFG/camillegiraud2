@@ -8,13 +8,14 @@ div
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(netlify name='contact' @submit.prevent='onSubmit' ref='form')
+            v-form(netlify name='Contact 2' @submit.prevent='onSubmit' ref='form')
                 div(hidden)
-                    input(name='de')
-                    textarea(name='message')
-                    input(name='téléphone')
-                    input(name='mail')
-                    textarea(name='adresse')
+                    //- input(name='de')
+                    //- textarea(name='message')
+                    //- input(name='téléphone')
+                    //- input(name='mail')
+                    //- textarea(name='adresse')
+                    textarea(name='contenu')
                 v-container
                     v-row
                         v-col(cols='12' md='4')
@@ -78,14 +79,25 @@ export default
                 fetch '/',
                     method: 'POST'
                     headers: 'Content-Type': 'application/x-www-form-urlencoded'
-                    body: encode {
-                        'form-name': 'contact'
-                        de: "#{@civil} #{@name}"
-                        @message
-                        'téléphone': @phone
-                        mail: @email
-                        adresse: @address
-                    }
+                    # body: encode {
+                    #     'form-name': 'Contact 2'
+                    #     de: "#{@civil} #{@name}"
+                    #     @message
+                    #     'téléphone': @phone
+                    #     mail: @email
+                    #     adresse: @address
+                    # }
+                    body:
+                        'form-name': 'Contact 2'
+                        contenu: """
+
+                            #{@civil} #{@name}
+                            #{@phone}
+                            #{@email}
+                            #{@address}
+
+                            #{@message}
+                        """
                 .then =>
                     @dialog = off
                     @$refs.form.reset()
