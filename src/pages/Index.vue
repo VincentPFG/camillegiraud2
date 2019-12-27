@@ -2,7 +2,7 @@
 Layout
     h1.display-3 Entretien Espaces Verts
     v-carousel(cycle hide-delimiters :show-arrows='false').grey
-        v-carousel-item(v-for='image in images' :key='image' :src='image' eager)
+        v-carousel-item(v-for='image in images' :key='image' :src='image')
     #contact
         h2.display-1 Nous contacter
         Contact
