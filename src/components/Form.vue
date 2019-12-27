@@ -8,14 +8,17 @@ div
                 v-spacer
                 v-btn(icon @click='dialog = false')
                     v-icon mdi-close
-            v-form(netlify name='test' @submit.prevent='onSubmit' ref='form')
+            div(hidden)
+                form(netlify name='test')
+                    textarea(name='contenu')
+            v-form(netlify @submit.prevent='onSubmit' ref='form')
                 div(hidden)
                     //- input(name='de')
                     //- textarea(name='message')
                     //- input(name='téléphone')
                     //- input(name='mail')
                     //- textarea(name='adresse')
-                    input(name='form-name' value='test')
+                    //- input(name='form-name' value='test')
                     textarea(name='contenu')
                 v-container
                     v-row
