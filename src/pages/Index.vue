@@ -1,17 +1,18 @@
-<template lang='pug'>
+<template lang="pug">
 Layout
     h1.display-3 Entretien Espaces Verts
-    v-carousel(cycle hide-delimiters :show-arrows='false').grey
+    v-carousel
         v-carousel-item(v-for='image in images' :key='image' :src='image')
     #contact
         h2.display-1 Nous contacter
         Contact
     #equipe
         h2.display-1 Notre équipe
+        v-alert(type='warning') Cette section est en attente du contenu necessaire.
         Equipe
 </template>
 
-<script lang='coffee'>
+<script lang="coffee">
 import Contact from '~/components/Contact'
 import Equipe from '~/components/Equipe'
 
@@ -23,9 +24,10 @@ export default
 </script>
 
 <style>
-h1, h2 {
-    text-align: center;
-    margin-top: 10vh;
-    margin-bottom: 5vh
+h1,
+h2 {
+	text-align: center;
+	margin-top: 10vh;
+	margin-bottom: 5vh;
 }
 </style>

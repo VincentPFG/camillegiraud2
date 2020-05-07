@@ -1,4 +1,4 @@
-<template lang='pug'>
+<template lang="pug">
 div
     v-form(v-show='false' netlify name='contact')
         textarea(name='contenu')
@@ -14,17 +14,17 @@ div
                 v-container
                     v-row
                         v-col(cols='12' md='4')
-                            v-select(:items='civilItems' label='Civilité' v-model='civil')
+                            v-select(outlined :items='civilItems' label='Civilité' v-model='civil')
                         v-col(cols='12' md='8')
-                            v-text-field(v-model='name' label='Nom' :rules='rules.name')
+                            v-text-field(outlined v-model='name' label='Nom' :rules='rules.name')
                     v-row
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='phone' type='tel' label='Téléphone' :rules='rules.phone' prepend-icon='mdi-cellphone')
+                            v-text-field(outlined v-model='phone' type='tel' label='Téléphone' :rules='rules.phone' prepend-icon='mdi-cellphone')
                         v-col(cols='12' md='4')
-                            v-text-field(v-model='email' type='email' label='Mail' :rules='rules.email' prepend-icon='mdi-email')
+                            v-text-field(outlined v-model='email' type='email' label='Mail' :rules='rules.email' prepend-icon='mdi-email')
                         v-col(cols='12' md='4')
-                            v-textarea(v-model='address' label='Adresse' prepend-icon='mdi-map-marker' :rules='rules.name')
-                    v-textarea(v-model='message' label='Message' prepend-icon='mdi-pen' :rules='rules.name')
+                            v-textarea(outlined v-model='address' label='Adresse' prepend-icon='mdi-map-marker' :rules='rules.name')
+                    v-textarea(outlined v-model='message' label='Message' prepend-icon='mdi-pen' :rules='rules.name')
                     v-row(justify='center')
                         v-btn(type='submit' fab color='primary')
                             v-icon mdi-send
@@ -36,7 +36,7 @@ div
             v-icon mdi-close
 </template>
 
-<script lang='coffee'>
+<script lang="coffee">
 encode = (data) -> ("#{encodeURIComponent key}=#{encodeURIComponent data[key]}" for key of data).join '&'
 requis = (v) => !!v or "Requis"
 
@@ -81,7 +81,7 @@ export default
                             #{@civil} #{@name}
 
                             #{@phone}   #{@email}
-                            
+
                             #{@address}
 
                             #{@message}
