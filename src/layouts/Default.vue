@@ -1,8 +1,8 @@
-<template lang='pug'>
+<template lang="pug">
 v-app
 	v-navigation-drawer(app v-model='drawer')
 		v-list(nav)
-			v-list-item(v-for='item in nav' :to='item.route' :key='item.name')
+			v-list-item(v-for='item in nav' @click='$vuetify.goTo(item.route)' :key='item.name')
 				v-list-item-content
 					v-list-item-title {{item.name}}
 	v-app-bar(app color='primary')
@@ -27,14 +27,14 @@ v-app
 }
 </static-query>
 
-<script lang='coffee'>
+<script lang="coffee">
 import Dark from '~/components/Dark'
 
 item = (@name, @route) ->
 
 export default
 	components: {Dark}
-	
+
 	data: ->
 		drawer: null
 		nav: [
