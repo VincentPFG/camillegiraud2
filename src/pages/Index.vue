@@ -8,7 +8,7 @@ Layout
         Contact
     #equipe
         h2.display-1 Notre équipe
-        v-alert(type='warning') Cette section est en attente du contenu necessaire.
+        v-alert(type='warning') Cette section est en attente du contenu nécessaire.
         Equipe
 </template>
 
