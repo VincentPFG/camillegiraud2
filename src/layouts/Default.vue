@@ -2,7 +2,7 @@
 v-app
 	v-navigation-drawer(app v-model='drawer')
 		v-list(nav)
-			v-list-item(v-for='item in nav' @click='$vuetify.goTo(item.route)' :key='item.name')
+			v-list-item(v-for='item in nav'  @click='$vuetify.goTo(item.route);  drawer = defaultDrawer' :key='item.name')
 				v-list-item-content
 					v-list-item-title {{item.name}}
 	v-app-bar(app color='primary')
@@ -37,8 +37,11 @@ export default
 
 	data: ->
 		drawer: null
+		defaultDrawer: null
 		nav: [
 			new item 'Nous contacter', '#contact'
 			new item 'Notre équipe', '#equipe'
 		]
+
+	mounted: -> defaultDrawer = drawer
 </script>
